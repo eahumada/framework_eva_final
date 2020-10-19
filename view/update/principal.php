@@ -53,7 +53,7 @@ include 'view/plantillas/top.php';
             <div class="form-group row">
               <label class="col-md-4 control-label" for="precio">PRECIO:</label>  
               <div class="col-md-4">
-              <input <?= $this->modelo->producto->precio ?> id="precio" name="precio" type="text" placeholder="Precio de venta" class="form-control input-md">
+              <input value="<?= $this->modelo->producto->precio ?>" id="precio" name="precio" type="text" placeholder="Precio de venta" class="form-control input-md">
               <span class="help-block">Precio de venta</span>  
               </div>
             </div>
