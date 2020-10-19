@@ -14,12 +14,12 @@ class producto {
     function __construct() {
     }
     
-    function init($id,$codigo,$nombre,$categoria,$sucursal,$descripcion,$cantidad,$precio) {
+    function init($id,$codigo,$nombre,$id_categoria,$id_sucursal,$descripcion,$cantidad,$precio) {
         $this->id=$id;
         $this->codigo=$codigo;
         $this->nombre=$nombre;
-        $this->id_categoria=$categoria;
-        $this->id_sucursal=$sucursal;
+        $this->id_categoria=$id_categoria;
+        $this->id_sucursal=$id_sucursal;
         $this->descripcion=$descripcion;
         $this->cantidad=$cantidad;
         $this->precio=$precio;
