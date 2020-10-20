@@ -102,7 +102,7 @@ encuentra (Suponga 3), y descripción, cantidad, y precio venta.</p>
             <div class="form-group row justify-content-center h-100">
                 <div class="col-sm-10 align-self-center text-center">
                     <button type="submit" class="btn btn-success">Agregar</button>
-                    <a href="search.php" class="btn btn-danger">Cancelar</a>
+                    <a href="?path=search" class="btn btn-danger">Cancelar</a>
                 </div>
             </div>
 

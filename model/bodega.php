@@ -1,6 +1,6 @@
 <?php
 
-require_once "model/bd.php"; // copiar el codigo de la clase en el codigo actual.
+require_once "model/bd.php";
 
 class bodega_crud
 {
@@ -26,9 +26,10 @@ class bodega_crud
 
         $nfilas = mysqli_affected_rows($link);
 
+        mysqli_close($link);
+
         return $nfilas; // devuelve el numero de filas insertadas.
 
-        mysqli_close($link);
     }
 
     public function eliminar_producto($id) // parametros de la funcion.
@@ -41,29 +42,40 @@ class bodega_crud
 
         $nfilas = mysqli_affected_rows($link);
 
+        mysqli_close($link);
+
         return $nfilas; // devuelve el numero de filas insertadas.
 
-        mysqli_close($link);
     }
 
     public function insertar_producto($producto) // parametros de la funcion.
     {
         $query = "insert into producto(codigo,nombre,id_sucursal,id_categoria,cantidad,precio,descripcion) values ('$producto->codigo','$producto->nombre',$producto->id_sucursal,$producto->id_categoria,$producto->cantidad,$producto->precio,'$producto->descripcion')";
-        $link = conexion::conecta(); // llamamos a un metodo de otro metodo, SELF, llama a un metodo dentro de la misma clase.
+        $link = conexion::conecta();
         // Nombre de clase cuando es otra clase.
-        mysqli_query($link, $query) or die(mysqli_error($link));
 
-        $nfilas = mysqli_affected_rows($link);
+        try {
+
+            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+            mysqli_query($link, $query) or die(mysqli_error($link));
+
+            $nfilas = mysqli_affected_rows($link);
+    
+            mysqli_close($link);
+    
+         } catch (mysqli_sql_exception $e) {
+            throw $e;
+         }
 
         return $nfilas; // devuelve el numero de filas insertadas.
 
-        mysqli_close($link);
     }
 
     public function update_producto($producto) // parametros de la funcion.
     {
         $query = "update producto set codigo='$producto->codigo', nombre='$producto->nombre', descripcion='$producto->descripcion',cantidad=$producto->cantidad,precio=$producto->precio where (id_producto=$producto->id)";
-        $link = conexion::conecta(); // llamamos a un metodo de otro metodo, SELF, llama a un metodo dentro de la misma clase.
+        $link = conexion::conecta(); 
         // Nombre de clase cuando es otra clase.
         mysqli_query($link, $query) or die(mysqli_error($link));
 

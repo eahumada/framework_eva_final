@@ -61,7 +61,7 @@ include 'view/plantillas/top.php';
             <div class="form-group row justify-content-center h-100">
                 <div class="col-sm-10 align-self-center text-center">
                     <button type="submit" class="btn btn-success">Actualizar</button>
-                    <a href="?" class="btn btn-danger">Cancelar</a>
+                    <a href="?path=search" class="btn btn-danger">Cancelar</a>
                 </div>
             </div>
 

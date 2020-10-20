@@ -48,8 +48,9 @@ include 'view/plantillas/top.php';
                                     <tbody>
                                     <?php
                                         foreach ($productos as $row) {
+                                            $id = $row['id_producto'];
                                             echo("<tr>");
-                                            echo("<td>".$row['id_producto']."</td>");
+                                            echo("<td>".$id."</td>");
                                             echo("<td>".$row['codigo']."</td>");
                                             echo("<td>".$row['nombre']."</td>");
                                             echo("<td>".$row['nombre_categoria']."</td>");
@@ -58,7 +59,7 @@ include 'view/plantillas/top.php';
                                             echo("<td>".$row['precio']."</td>");
                                             echo("<td>".$row['estado']."</td>");
                                             echo("<td>");
-                                            echo("<a class='btn btn-success' href='update.php'>editar</a>");
+                                            echo("<a class='btn btn-success' href='?path=update&id=".$id."'>editar</a>");
                                             echo("</td>");
                                             echo("</tr>");
                                         }
@@ -83,7 +84,7 @@ include 'view/plantillas/top.php';
                             <div class="col-sm-10 align-self-center text-center">
                                 <a href="?path=delete&metodo=eliminar&accion=desactivar&criterio=<?php echo $criterio ?>&query=<?php echo $query ?>" class="btn btn-success">Dar de baja</a>
                                 <a href="?path=delete&metodo=eliminar&accion=eliminar&criterio=<?php echo $criterio ?>&query=<?php echo $query ?>" class="btn btn-danger">Eliminar</a>
-                                <a href="delete.php" class="btn btn-primary">Cancelar</a>
+                                <a href="?path=delete" class="btn btn-primary">Cancelar</a>
                             </div>
                           </div>
                         </div>

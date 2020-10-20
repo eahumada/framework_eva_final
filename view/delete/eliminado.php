@@ -11,11 +11,6 @@ include 'view/plantillas/top.php';
                     <div class="col-sm-6">
                         <h1>Dar de baja Producto</h1>
                         <p>
-                        De acuerdo a los requerimientos del software, permite borrar registros ya sea de toda la base de datos o por sucursal,
-                        Es posible realizar un borrado lógico (Actualizando el estado del producto, activo ' ' o inactivo 'X') 
-                        o dado de baja de forma definitiva eliminandolo de la base de datos. Filtrado por código y/o sucursal.
-                        </p>
-                        <p>
                             <?= $this->modelo->mensaje ?>
                         </p>                        
                     </div>
@@ -32,9 +27,15 @@ include 'view/plantillas/top.php';
                     <div class="col-12">
                         <div class="card"> 
                             <div class="card-header">
+                                Registro Eliminado
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
+
+                                <div class="col-sm-10 align-self-center text-center">
+                                    <a href="?path=delete" class="btn btn-primary">Volver</a>
+                                </div>
+                            
                             </div>
                             <!-- /.card-body -->
                         </div>
