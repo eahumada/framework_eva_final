@@ -58,11 +58,9 @@ Class record_controller {
             $mensaje = "";
         
             $bodega_crud =  new bodega_crud();
-        
-            $filas = $bodega_crud->insertar_producto($producto);
-            
+                    
             try {
-                $filas = $bodega_crud->update_producto($producto);
+                $filas = $bodega_crud->insertar_producto($producto);
                 $mensaje .=  "<br>Insertados # $filas productos";
             } catch (mysqli_sql_exception $e) {
                 $mensaje .= "No fue posible actualizar el producto: ".$e;

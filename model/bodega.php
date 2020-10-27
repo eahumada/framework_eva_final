@@ -56,11 +56,13 @@ class bodega_crud
 
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-        mysqli_query($link, $query) or die(mysqli_error($link));
-
-        $nfilas = mysqli_affected_rows($link);
-
-        mysqli_close($link);
+        try {
+            mysqli_query($link, $query);
+            $nfilas = mysqli_affected_rows($link);
+            mysqli_close($link);
+        } catch (mysqli_sql_exception $e) {
+            throw $e;
+         } 
 
         return $nfilas; // devuelve el numero de filas insertadas.
 
