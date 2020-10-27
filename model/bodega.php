@@ -54,19 +54,13 @@ class bodega_crud
         $link = conexion::conecta();
         // Nombre de clase cuando es otra clase.
 
-        try {
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        mysqli_query($link, $query) or die(mysqli_error($link));
 
-            mysqli_query($link, $query) or die(mysqli_error($link));
+        $nfilas = mysqli_affected_rows($link);
 
-            $nfilas = mysqli_affected_rows($link);
-    
-            mysqli_close($link);
-    
-         } catch (mysqli_sql_exception $e) {
-            throw $e;
-         }
+        mysqli_close($link);
 
         return $nfilas; // devuelve el numero de filas insertadas.
 
@@ -75,7 +69,10 @@ class bodega_crud
     public function update_producto($producto) // parametros de la funcion.
     {
         $query = "update producto set codigo='$producto->codigo', nombre='$producto->nombre', descripcion='$producto->descripcion',cantidad=$producto->cantidad,precio=$producto->precio where (id_producto=$producto->id)";
-        $link = conexion::conecta(); 
+        $link = conexion::conecta();
+
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        
         // Nombre de clase cuando es otra clase.
         mysqli_query($link, $query) or die(mysqli_error($link));
 
