@@ -11,7 +11,7 @@ include 'view/plantillas/top.php';
   <div class="col-12">
       <div class="card">
           <div class="card-header">
-              <h3 class="card-title">Detalles del producto a dar de baja</h3>
+              <h3 class="card-title">Detalles del producto a dar de actualizar</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body table-responsive p-10">
