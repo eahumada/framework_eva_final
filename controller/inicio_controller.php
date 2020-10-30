@@ -12,7 +12,14 @@ Class inicio_controller {
     }
 
     public function inicio(){
+        // remove all session variables
+        session_unset();
+
+        // destroy the session
+        session_destroy(); 
+
         require_once "view/inicio/principal.php";
+
     }
 
 }

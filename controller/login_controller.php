@@ -10,7 +10,7 @@ Class login_controller {
     }
 
     public function inicio(){
-        require_once "view/login/principal.php";        
+        require_once "view/login/principal.php";
     }
 
     public function ingresar() {
@@ -19,9 +19,10 @@ Class login_controller {
         } else if(empty($_POST['inputPassword'])){
             $this->modelo->mensaje="Debe indicar password";
         } else {
-            $email = "";
-            $password = "";
-            if($email="admin@bodegas.cl" && $password="admin") {
+            $email = $_POST['inputEmail'];
+            $password = $_POST['inputPassword'];
+            if($email=="admin@bodegas.cl" && $password=="admin") {
+                $_SESSION["email"] = $email;
                 header ('Location: ?path=search');
             }
         }   
